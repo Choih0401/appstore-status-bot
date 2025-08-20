@@ -21,9 +21,10 @@ jobs:
           ruby-version: "3.2.2"
           bundler-cache: true  # Gemfile.lock 기준으로 캐시/설치 자동화
 
-      # ❌ 제거: - run: gem install bundler:2.1.4
-      - run: bundle update fastlane
+      - run: gem install bundler:2.1.4
       - run: bundle install
+      - run: npm install
+      - run: gem install fastlane -v '2.219.0'
 
       - run: npm install
 

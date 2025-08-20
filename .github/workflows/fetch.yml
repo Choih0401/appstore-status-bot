@@ -17,7 +17,7 @@ jobs:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: "true"
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.2"
+          ruby-version: "2.7"
       - run: gem install bundler:2.1.4
       - run: bundle install
       - run: npm install
@@ -29,7 +29,6 @@ jobs:
           ISSUER_ID: ${{ secrets.ISSUER_ID }}
           BUNDLE_ID: ${{ secrets.BUNDLE_ID }}
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GIST_ID: ${{ secrets.GIST_ID }}
           LANGUAGE: "ko"

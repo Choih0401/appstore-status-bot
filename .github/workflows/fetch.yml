@@ -9,18 +9,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2.1.1
+      - uses: actions/checkout@v4
+
+      # Node는 기존 14.x 그대로 두었습니다. (필요하면 18/20 LTS로 올리세요)
+      - uses: actions/setup-node@v4
         with:
-          node-version: "14.x"
-        env:
-          ACTIONS_ALLOW_UNSECURE_COMMANDS: "true"
+          node-version: "20"
+
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "2.6"
-      - run: gem install bundler:2.1.4
+          ruby-version: "3.2"
+          bundler-cache: true  # Gemfile.lock 기준으로 캐시/설치 자동화
+
+      # ❌ 제거: - run: gem install bundler:2.1.4
+      - run: bundle update fastlane
       - run: bundle install
+
       - run: npm install
+
       - run: node Sources/check_status.js
         env:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}

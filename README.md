@@ -69,4 +69,4 @@ In `workflow` file, can change lanauges and fetch schedule default `schedule` is
 
 # Contribution 
 - Feel free to contribution for this project. 
-- Every `PR`, `Issues` is wellcome. 🤩
+- Every `PR`, `Issues` is wellcome. 🤩 
